@@ -22,9 +22,11 @@ app.use(cookieParser());
 
 app.use('/', wechat(token, function (req, res, next) {
     var message = req.weixin;
-    chatHandler(message,function(result){
-        res.reply(result);
-    });
+    if (message.MsgType === 'text') {
+        chatHandler(message.Content, function (result) {
+            res.reply(result);
+        });
+    }
 }));
 
 

@@ -4,9 +4,23 @@
 var request = require('request');
 
 var chat = function (keyword, callback) {
-    request.post({uri: 'http://www.xiaohuangji.com/ajax.php', form: {para: keyword}}, function (err, res, body) {
-        callback(body);
-    });
+    console.log(keyword);
+    request(
+        {
+            url: 'http://www.xiaohuangji.com/ajax.php',
+            method: 'POST',
+            headers: {
+                ContentType: 'application/x-www-form-urlencoded'
+            },
+            form: {
+                para: keyword
+            }
+        },
+        function (err, res, body) {
+            console.log(body);
+            callback(body);
+        }
+    );
 }
 
 module.exports = chat;
