@@ -7,6 +7,7 @@ var app = express();
 var wechat = require('wechat');
 
 var mainHandler = require('./handlers/main');
+var chatHandler = require('./handlers/chat');
 
 var token = {
     token: 'chendong',
@@ -20,7 +21,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use('/', wechat(token, function (req, res, next) {
-    res.reply('hello');
+    var message = req.weixin;
+    chatHandler(message,function(result){
+        res.reply(result);
+    });
 }));
 
 
