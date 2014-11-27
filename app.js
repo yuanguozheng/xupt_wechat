@@ -8,7 +8,11 @@ var wechat = require('wechat');
 
 var mainHandler = require('./handlers/main');
 
-var token = '';
+var token = {
+    token: 'chendong',
+    appid: 'wxa6b88daf699c9b56',
+    encodingAESKey: 'nKcGElr1KKZWFonE9NuElq9vkcCovkPRYmwfDomOH5i'
+};
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -16,10 +20,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use('/', wechat(token, function (req, res, next) {
-    mainHandler(req, function (result) {
-
-    });
+    res.reply('hello');
 }));
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
