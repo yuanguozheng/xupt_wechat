@@ -10,9 +10,9 @@ var mainHandler = require('./handlers/main');
 var chatHandler = require('./handlers/chat');
 
 var token = {
-    token: 'chendong',
-    appid: 'wxa6b88daf699c9b56',
-    encodingAESKey: 'nKcGElr1KKZWFonE9NuElq9vkcCovkPRYmwfDomOH5i'
+    token: 'xuptwechat',
+    appid: 'wx17921e4f180ec857',
+    encodingAESKey: 'a33e19c25d2dfa2ffa9cdc83cdfe4063'
 };
 
 app.use(logger('dev'));
